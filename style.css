@@ -1,0 +1,526 @@
+/* Boşlukların öğelerin genişliğine dahil edilmesini sağlar. */
+* {
+    box-sizing: border-box;
+}
+
+/* Sayfanın genel görünümü */
+body {
+    margin: 0;
+    background-color: #f7f5f0;
+    color: #202b35;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Üst bölüm */
+.site-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #202b35;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.site-header span {
+    color: #616b74;
+    font-size: 14px;
+}
+
+/* Sayfanın içerik alanı */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Tanıtım bölümü */
+.intro {
+    padding: 100px 0 110px;
+    animation: appear 0.8s ease-out;
+}
+
+.eyebrow {
+    color: #267b73;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+h1 {
+    margin: 16px 0 24px;
+    font-size: clamp(44px, 8vw, 88px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    color: #267b73;
+}
+
+.description {
+    max-width: 580px;
+    margin-bottom: 32px;
+    color: #616b74;
+    font-size: 20px;
+}
+
+/* Bağlantıyı düğme gibi gösterir. */
+.button {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 8px;
+    background-color: #267b73;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #1d605a;
+    transform: translateY(-3px);
+}
+
+.button:focus-visible {
+    outline: 3px solid #202b35;
+    outline-offset: 4px;
+}
+
+/* Gezi tanıtımı */
+.travel {
+    padding: 48px 0;
+    border-top: 1px solid #dcded9;
+}
+
+.travel h2 {
+    font-size: 28px;
+}
+
+.travel p {
+    max-width: 600px;
+    color: #616b74;
+}
+
+/* Alt bölüm */
+footer {
+    padding: 24px;
+    color: #616b74;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Sayfa açılırken tanıtımın belirmesi */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Küçük ekranlarda boşlukları azaltır. */
+@media (max-width: 600px) {
+    .intro {
+        padding: 60px 0;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+}
+
+/* Hareketi azaltmayı tercih eden kullanıcılar için */
+@media (prefers-reduced-motion: reduce) {
+    .intro {
+        animation: none;
+    }
+
+    .button {
+        transition: none;
+    }
+}
+
+/* Sitenin yeni renkleri */
+body {
+    background-color: #fff0f5;
+    color: #4c246b;
+}
+
+.logo,
+h1 span,
+.eyebrow {
+    color: #66358a;
+}
+
+.description,
+.site-header span,
+.travel p,
+footer {
+    color: #71547f;
+}
+
+.button {
+    background-color: #75439a;
+}
+
+.button:hover {
+    background-color: #582c77;
+}
+
+.button:focus-visible {
+    outline-color: #4c246b;
+}
+
+.travel {
+    border-color: #e7cde2;
+}
+
+/* Üst menü */
+.site-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.site-header nav a {
+    color: #66358a;
+    text-decoration: none;
+    padding: 4px 0;
+}
+
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+/* About sayfası */
+.about-page {
+    max-width: 950px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+/* Fotoğraf ve tanıtım yan yana */
+.profile {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 36px;
+    align-items: start;
+    padding-bottom: 48px;
+    animation: appear 0.8s ease-out;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 3px solid #e7cde2;
+}
+
+.profile h1 {
+    margin: 0 0 10px;
+    font-size: clamp(30px, 5vw, 42px);
+    letter-spacing: -1px;
+}
+
+.profile p {
+    margin: 12px 0;
+}
+
+.profile .profile-role {
+    color: #75439a;
+    font-weight: bold;
+}
+
+/* CV bölümleri */
+.cv-section {
+    border-top: 1px solid #e7cde2;
+    padding: 32px 0;
+}
+
+.cv-section h2 {
+    margin: 0 0 8px;
+    font-size: 25px;
+}
+
+.section-note,
+.detail,
+.cv-date {
+    color: #71547f;
+}
+
+.section-note {
+    margin: 0 0 24px;
+}
+
+/* Okul adı, açıklama ve tarih sütunları */
+.cv-row {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr auto;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid #e7cde2;
+}
+
+.cv-row:last-child {
+    border-bottom: none;
+}
+
+.cv-row h3,
+.cv-row p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.cv-row .detail {
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.interest-list {
+    padding-left: 20px;
+}
+
+.interest-list li {
+    margin-bottom: 8px;
+}
+
+/* Telefonda fotoğraf ve CV satırları alt alta */
+@media (max-width: 650px) {
+    .profile,
+    .cv-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .site-header nav {
+        gap: 12px;
+    }
+
+    .about-page {
+        padding-top: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile {
+        animation: none;
+    }
+}
+
+#leaflet-map {
+    height: 460px;
+    width: 100%;
+    margin-top: 16px;
+    border: 1px solid #e7cde2;
+    border-radius: 16px;
+    background-color: #f5e4f0;
+}
+
+.map-note {
+    color: #71547f;
+    font-size: 14px;
+}
+
+.poet-popup {
+    color: #4c246b;
+    font-family: Arial, sans-serif;
+}
+
+.poet-popup h3 {
+    margin: 8px 0;
+    font-size: 17px;
+}
+
+.poet-entry + .poet-entry {
+    border-top: 1px solid #e7cde2;
+    margin-top: 12px;
+    padding-top: 8px;
+}
+
+#leaflet-map .leaflet-popup-content-wrapper,
+#leaflet-map .leaflet-popup-tip {
+    background-color: #fff0f5;
+}
+
+@media (max-width: 600px) {
+    #leaflet-map {
+        height: 360px;
+    }
+}
+#ol-map {
+    height: 460px;
+    width: 100%;
+    margin-top: 16px;
+    border: 1px solid #e7cde2;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #f5e4f0;
+}
+
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin: 20px 0;
+    color: #71547f;
+    font-size: 14px;
+}
+
+.map-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.early {
+    background-color: #66358a;
+}
+
+.legend-dot.middle {
+    background-color: #287f83;
+}
+
+.legend-dot.late {
+    background-color: #b66a20;
+}
+
+.legend-dot.mixed {
+    background-color: #c74785;
+}
+
+.map-details {
+    margin-top: 16px;
+    padding: 20px;
+    border: 1px solid #e7cde2;
+    border-radius: 12px;
+    color: #4c246b;
+    background-color: #fbe5ef;
+}
+
+.map-details h3 {
+    margin: 8px 0;
+}
+
+@media (max-width: 600px) {
+    #ol-map {
+        height: 360px;
+    }
+}
+.table-container {
+    margin-top: 24px;
+    overflow-x: auto;
+    border: 1px solid #e7cde2;
+    border-radius: 16px;
+}
+
+.poet-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.poet-table caption {
+    padding: 16px;
+    text-align: left;
+    color: #71547f;
+}
+
+.poet-table thead {
+    background-color: #efd9ed;
+}
+
+.poet-table th,
+.poet-table td {
+    padding: 18px;
+    border-bottom: 1px solid #e7cde2;
+    vertical-align: middle;
+}
+
+.poet-table tbody th {
+    font-weight: 600;
+}
+
+.poet-table tbody tr:last-child th,
+.poet-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.poet-table tbody tr:hover {
+    background-color: #f8e3ef;
+}
+
+.poet-portrait {
+    display: block;
+    width: 72px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/* Şair isminin altındaki açılır bölüm */
+.verse-details {
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.verse-details summary {
+    width: fit-content;
+    color: #75439a;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.verse-details summary:hover {
+    color: #4c246b;
+}
+
+.verse-details summary:focus-visible {
+    outline: 2px solid #75439a;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.verse-details[open] summary {
+    margin-bottom: 12px;
+}
+
+/* Şiir alıntısı */
+.verse-quote {
+    margin: 0;
+    padding: 14px 18px;
+    max-width: 420px;
+
+    border-left: 3px solid #b77ac9;
+    border-radius: 0 10px 10px 0;
+    background-color: #f5e4f0;
+
+    color: #57336d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.8;
+
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}

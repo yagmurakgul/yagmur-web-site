@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Poetry Map | Yağmur Akgül</title>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/ol@10.11.0/ol.css"
+>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">YA.</a>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="poetry.html" aria-current="page">Poetry Map</a>
+        </nav>
+    </header>
+
+    <main class="poetry-page">
+        <section class="poetry-intro">
+            <p class="eyebrow">A PERSONAL SELECTION</p>
+
+            <h1>My Poetry Map</h1>
+
+            <p class="description">
+                Eleven of my favourite Turkish poets,
+                connected through the places where they were born.
+                Explore their birthplaces and discover
+                their birth and death years.
+            </p>
+        </section>
+
+        <section class="cv-section">
+            <h2>Where Their Stories Began</h2>
+
+            <p>
+                From Thessaloniki to Diyarbakır, discover
+                the birthplaces behind the names.
+                Poets who share a birthplace will be
+                listed together at the same point.
+            </p>
+
+            <p id="leaflet-status" class="map-note" aria-live="polite">
+    Zoom in to see the poets’ birthplaces.
+</p>
+
+<div
+    id="leaflet-map"
+    aria-label="Map of Turkish poets’ birthplaces"
+></div>
+
+<p class="map-note">
+    Points represent approximate city or district centres,
+    not exact birth addresses.
+</p>
+        </section>
+
+        <section class="cv-section">
+            <h2>Poets by Birth Period</h2>
+
+            <p>
+                Explore the same poets on a second map,
+                with colours representing their birth periods.
+            </p>
+
+            <div class="map-legend">
+    <span><i class="legend-dot early"></i> Before 1900</span>
+    <span><i class="legend-dot middle"></i> 1900–1924</span>
+    <span><i class="legend-dot late"></i> 1925 onwards</span>
+    <span><i class="legend-dot mixed"></i> Multiple periods</span>
+</div>
+
+<p id="ol-status" class="map-note" aria-live="polite">
+    Zoom in to see the birthplaces.
+</p>
+
+<div
+    id="ol-map"
+    tabindex="0"
+    aria-label="Map of poets grouped by birth period"
+></div>
+
+<div id="ol-details" class="map-details" aria-live="polite">
+    Select a point to see the poets’ details.
+</div>
+
+<p class="map-note">
+    Points represent approximate city or district centres,
+    not exact birth addresses.
+</p>
+        </section>
+
+        <section class="cv-section">
+    <h2>Meet the Poets</h2>
+
+    <p>
+        The names, life dates, and birthplaces
+        behind the points on my poetry map.
+    </p>
+
+    <div class="table-container">
+        <table class="poet-table">
+            <caption>My selection of Turkish poets</caption>
+
+            <thead>
+                <tr>
+                    <th scope="col">Portrait</th>
+                    <th scope="col">Poet</th>
+                    <th scope="col">Life Dates</th>
+                    <th scope="col">Birthplace</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="images/nazim-hikmet.jpg"
+                             alt="Portrait of Nâzım Hikmet Ran"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Nâzım Hikmet Ran</th>
+                    <td>1902–1963</td>
+                    <td>Thessaloniki, Greece</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/orhan-veli.jpg"
+                             alt="Portrait of Orhan Veli Kanık"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Orhan Veli Kanık</th>
+                    <td>1914–1950</td>
+                    <td>Beykoz, İstanbul</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/cemal-sureya.jpg"
+                             alt="Portrait of Cemal Süreya"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Cemal Süreya</th>
+                    <td>1931–1990</td>
+                    <td>Erzincan</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/turgut-uyar.jpg"
+                             alt="Portrait of Turgut Uyar"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Turgut Uyar</th>
+                    <td>1927–1985</td>
+                    <td>Ankara</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/edip-cansever.jpg"
+                             alt="Portrait of Edip Cansever"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Edip Cansever</th>
+                    <td>1928–1986</td>
+                    <td>İstanbul</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/attila-ilhan.jpg"
+                             alt="Portrait of Attilâ İlhan"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Attilâ İlhan</th>
+                    <td>1925–2005</td>
+                    <td>Menemen, İzmir</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/necip-fazil.jpg"
+                             alt="Portrait of Necip Fazıl Kısakürek"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Necip Fazıl Kısakürek</th>
+                    <td>1904–1983</td>
+                    <td>İstanbul</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/yahya-kemal.jpeg"
+                             alt="Portrait of Yahya Kemal Beyatlı"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Yahya Kemal Beyatlı</th>
+                    <td>1884–1958</td>
+                    <td>Skopje, North Macedonia</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/cahit-sitki.jpg"
+                             alt="Portrait of Cahit Sıtkı Tarancı"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Cahit Sıtkı Tarancı</th>
+                    <td>1910–1956</td>
+                    <td>Diyarbakır</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/ozdemir-asaf.jpg"
+                             alt="Portrait of Özdemir Asaf"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Özdemir Asaf</th>
+                    <td>1923–1981</td>
+                    <td>Ankara</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="images/mehmet-akif.png"
+                             alt="Portrait of Mehmet Âkif Ersoy"
+                             class="poet-portrait" loading="lazy"
+                             width="72" height="88">
+                    </td>
+                    <th scope="row">Mehmet Âkif Ersoy</th>
+                    <td>1873–1936</td>
+                    <td>Fatih, İstanbul</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <p>© 2026 Yağmur Akgül</p>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="poetry.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/ol@10.11.0/dist/ol.js"></script>
+<script src="openlayers-map.js"></script>
+<script src="poems.js"></script>
+</body>
+</html>
