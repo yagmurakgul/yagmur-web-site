@@ -524,3 +524,856 @@ footer {
     white-space: pre-line;
     overflow-wrap: anywhere;
 }
+/* Haritadaki şair bilgi kutuları */
+#leaflet-map .leaflet-popup-content-wrapper,
+#leaflet-map .leaflet-popup-tip {
+    background-color: #fff0f5;
+}
+
+.poet-popup {
+    color: #4c246b;
+    font-family: Arial, sans-serif;
+}
+
+.poet-popup .popup-location {
+    margin: 0 0 12px;
+    color: #71547f;
+    font-size: 13px;
+}
+
+.map-poet-card {
+    padding: 14px 0;
+}
+
+.map-poet-card + .map-poet-card {
+    border-top: 1px solid #e7cde2;
+}
+
+.map-poet-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.map-poet-heading img {
+    display: block;
+    width: 70px;
+    height: 86px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.poet-popup .map-poet-heading h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.poet-popup .map-poet-heading p {
+    margin: 0;
+    color: #71547f;
+    font-size: 14px;
+}
+
+.map-verse {
+    margin: 16px 0 0;
+    padding: 10px 14px;
+    border-left: 3px solid #b77ac9;
+    border-radius: 0 8px 8px 0;
+    background-color: #f5e4f0;
+    color: #57336d;
+
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.7;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+/* HARİTA ALANLARI */
+#leaflet-map,
+#ol-map {
+    width: 100%;
+    height: 480px;
+    margin-top: 16px;
+    border: 1px solid #e7cde2;
+    border-radius: 16px;
+    background-color: #f5e4f0;
+}
+
+#ol-map {
+    overflow: hidden;
+}
+
+.map-note {
+    color: #71547f;
+    font-size: 14px;
+}
+
+/* KATEGORİ SEÇİMİ */
+#leaflet-map .leaflet-control-layers {
+    padding: 10px 14px;
+    border: 1px solid #e7cde2;
+    border-radius: 12px;
+    background-color: #fff0f5;
+    color: #4c246b;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#leaflet-map .leaflet-control-layers label {
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+#leaflet-map .leaflet-control-layers input {
+    accent-color: #75439a;
+}
+
+/* BİLGİ KUTULARI */
+#leaflet-map .leaflet-popup-content-wrapper,
+#leaflet-map .leaflet-popup-tip {
+    background-color: #fff0f5;
+}
+
+.culture-popup {
+    color: #4c246b;
+    font-family: Arial, sans-serif;
+}
+
+.culture-popup h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.culture-popup .popup-location {
+    margin: 0 0 12px;
+    color: #71547f;
+    font-size: 13px;
+}
+
+/* ŞAİR KARTLARI */
+.map-poet-card {
+    padding: 14px 0;
+}
+
+.map-poet-card + .map-poet-card {
+    border-top: 1px solid #e7cde2;
+}
+
+.map-poet-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.map-poet-heading img {
+    display: block;
+    width: 70px;
+    height: 86px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.map-poet-heading p {
+    margin: 0;
+    color: #71547f;
+}
+
+.map-verse {
+    margin: 16px 0 0;
+    padding: 12px 14px;
+    border-left: 3px solid #b77ac9;
+    border-radius: 0 8px 8px 0;
+    background-color: #f5e4f0;
+    color: #57336d;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.7;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* ESER KARTLARI */
+.map-art-card {
+    padding: 16px 0;
+    border-top: 1px solid #e7cde2;
+}
+
+.map-art-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #f5e4f0;
+}
+
+.map-art-card h4 {
+    margin: 12px 0 6px;
+    font-size: 17px;
+}
+
+.culture-popup .map-art-card p {
+    margin: 6px 0;
+    line-height: 1.6;
+}
+
+.artwork-note {
+    color: #71547f;
+    font-size: 13px;
+}
+
+/* TABLOLAR */
+.table-container {
+    margin-top: 24px;
+    overflow-x: auto;
+    border: 1px solid #e7cde2;
+    border-radius: 16px;
+}
+
+.poet-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.poet-table caption {
+    padding: 16px;
+    color: #71547f;
+    text-align: left;
+}
+
+.poet-table thead {
+    background-color: #efd9ed;
+}
+
+.poet-table th,
+.poet-table td {
+    padding: 18px;
+    border-bottom: 1px solid #e7cde2;
+    vertical-align: middle;
+}
+
+.poet-table tbody th {
+    font-weight: 600;
+}
+
+.poet-table tbody tr:last-child th,
+.poet-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.poet-table tbody tr:hover {
+    background-color: #f8e3ef;
+}
+
+.poet-portrait {
+    display: block;
+    width: 72px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.artwork-thumbnail {
+    display: block;
+    width: 110px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #f5e4f0;
+}
+
+.artwork-table .detail {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+@media (max-width: 600px) {
+    #leaflet-map,
+    #ol-map {
+        height: 380px;
+    }
+
+    .poet-table th,
+    .poet-table td {
+        padding: 12px;
+    }
+}
+/* RESTAURANT POPUPS */
+
+.restaurant-popup {
+    padding: 8px 4px;
+    color: #603878;
+}
+
+.restaurant-popup .restaurant-label {
+    margin: 0 0 12px;
+    color: #9b4777;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.restaurant-popup h3 {
+    margin: 0 0 8px;
+    color: #603878;
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+.restaurant-popup .restaurant-location {
+    margin: 0 0 16px;
+    color: #9b4777;
+    font-size: 13px;
+}
+
+.restaurant-popup .michelin-badge {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 8px;
+    padding: 9px 12px;
+    border: 1px solid #edc6dc;
+    border-radius: 12px;
+    background: #fff0f5;
+    color: #743f68;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.restaurant-popup .michelin-stars {
+    color: #ad3960;
+    font-size: 20px;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.restaurant-popup .michelin-meaning {
+    margin: 0 0 18px;
+    color: #795b83;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.restaurant-popup .restaurant-address {
+    margin: 0 0 18px;
+    padding-top: 14px;
+    border-top: 1px solid #ecd3e3;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.restaurant-popup a.restaurant-link {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #f7e1ec;
+    color: #603878;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.restaurant-popup a.restaurant-link:hover {
+    background: #edc6dc;
+}
+
+.restaurant-popup a.restaurant-link:focus-visible {
+    outline: 2px solid #603878;
+    outline-offset: 3px;
+}
+
+.restaurant-popup .restaurant-source-note {
+    margin: 14px 0 0;
+    color: #795b83;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* AÇILIP KAPANAN HARİTA ARAMASI */
+
+.culture-search-control {
+    position: relative;
+    font-family: inherit;
+}
+
+.culture-search-toggle {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #e4c6df;
+    border-radius: 12px;
+    background: #fff0f5;
+    box-shadow: 0 3px 12px rgb(96 56 120 / 12%);
+    cursor: pointer;
+    font-size: 19px;
+    transition: background-color 0.2s ease;
+}
+
+.culture-search-toggle:hover,
+.culture-search-toggle[aria-expanded="true"] {
+    background: #efd5e7;
+}
+
+.culture-search-panel {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    box-sizing: border-box;
+    width: min(310px, calc(100vw - 60px));
+    padding: 18px;
+    border: 1px solid #e4c6df;
+    border-radius: 16px;
+    background: #fff8fb;
+    box-shadow: 0 8px 28px rgb(96 56 120 / 16%);
+    color: #603878;
+}
+
+.culture-search-panel[hidden] {
+    display: none;
+}
+
+.culture-search-panel label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.culture-search-panel input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dfbfd8;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #603878;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.culture-search-panel input::placeholder {
+    color: #896d95;
+}
+
+.culture-search-status {
+    margin: 10px 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.culture-search-results {
+    display: grid;
+    gap: 8px;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.culture-search-result {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #eedbe8;
+    border-radius: 10px;
+    background: #fff0f5;
+    color: #603878;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.culture-search-result:hover {
+    background: #efd5e7;
+}
+
+.culture-search-result strong {
+    display: block;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.culture-search-result span {
+    display: block;
+    margin-top: 5px;
+    color: #795b83;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.culture-search-control button:focus-visible,
+.culture-search-panel input:focus-visible {
+    outline: 2px solid #8651a0;
+    outline-offset: 3px;
+}
+
+/* KÜMELENEN HARİTA NOKTALARI */
+
+.culture-cluster {
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    border: 5px solid rgb(255 255 255 / 65%);
+    border-radius: 50%;
+    box-shadow: 0 3px 12px rgb(60 30 80 / 22%);
+    cursor: pointer;
+}
+
+.culture-cluster-count {
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.cluster-poets {
+    background: #8651a0;
+}
+
+.cluster-artworks {
+    background: #318c91;
+}
+
+.cluster-restaurants {
+    background: #b85283;
+}
+
+.culture-cluster:focus-visible {
+    outline: 3px solid #603878;
+    outline-offset: 3px;
+}
+
+/* MY TRAVEL MAP */
+
+#ol-map {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border: 1px solid #e4c6df;
+    border-radius: 18px;
+    background: #f8edf4;
+}
+
+.travel-map-section {
+    margin-top: 50px;
+}
+
+/* KAPALI KATMAN MENÜSÜ */
+
+.travel-layer-control {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-family: inherit;
+}
+
+.travel-layer-toggle {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    margin-left: auto;
+    border: 1px solid #e4c6df;
+    border-radius: 12px;
+    background: #fff0f5;
+    color: #603878;
+    box-shadow: 0 3px 12px rgb(96 56 120 / 12%);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.travel-layer-toggle:hover,
+.travel-layer-toggle[aria-expanded="true"] {
+    background: #efd5e7;
+}
+
+.travel-layer-panel {
+    width: 180px;
+    margin-top: 8px;
+    padding: 16px;
+    border: 1px solid #e4c6df;
+    border-radius: 14px;
+    background: #fff8fb;
+    box-shadow: 0 6px 20px rgb(96 56 120 / 15%);
+    color: #603878;
+}
+
+.travel-layer-panel[hidden] {
+    display: none;
+}
+
+.travel-layer-panel p {
+    margin: 0 0 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.travel-layer-panel label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.travel-layer-panel input {
+    accent-color: #8651a0;
+}
+
+/* HARİTA BİLGİ KARTI */
+
+.travel-popup {
+    position: relative;
+    box-sizing: border-box;
+    width: min(280px, calc(100vw - 65px));
+    padding: 24px;
+    border: 1px solid #e4c6df;
+    border-radius: 16px;
+    background: #fff8fb;
+    box-shadow: 0 8px 24px rgb(96 56 120 / 18%);
+    color: #603878;
+}
+
+.travel-popup[hidden] {
+    display: none;
+}
+
+.travel-popup::after {
+    position: absolute;
+    bottom: -9px;
+    left: calc(50% - 8px);
+    width: 16px;
+    height: 16px;
+    border-right: 1px solid #e4c6df;
+    border-bottom: 1px solid #e4c6df;
+    background: #fff8fb;
+    transform: rotate(45deg);
+    content: "";
+}
+
+.travel-popup-close {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    padding: 2px 8px;
+    border: none;
+    background: transparent;
+    color: #795b83;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.travel-popup .travel-popup-category {
+    margin: 0 0 10px;
+    color: #a1517f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+.travel-popup h3 {
+    margin: 0 0 12px;
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+#travel-popup-note {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.travel-layer-control button:focus-visible,
+.travel-layer-panel input:focus-visible,
+.travel-popup-close:focus-visible {
+    outline: 2px solid #8651a0;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    #ol-map {
+        height: 380px;
+    }
+}
+
+/* HARİTAYI SIFIRLAMA DÜĞMELERİ */
+
+.map-reset-button {
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #e4c6df;
+    border-radius: 12px;
+    background: #fff0f5;
+    color: #603878;
+    box-shadow: 0 3px 12px rgb(96 56 120 / 12%);
+    font-family: inherit;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.map-reset-button:hover {
+    background: #efd5e7;
+}
+
+.map-reset-button:focus-visible {
+    outline: 2px solid #8651a0;
+    outline-offset: 3px;
+}
+
+.travel-reset-control {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+}
+
+.restaurant-popup .restaurant-dish-photo {
+    display: block;
+    width: 100%;
+    height: 180px;
+    margin: 16px 0;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.restaurant-popup .restaurant-dish-photo[hidden] {
+    display: none;
+}
+
+.restaurant-popup .restaurant-dish-label {
+    margin: 16px 0 7px;
+    color: #a1517f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.restaurant-popup .restaurant-dish-title {
+    margin: 0 0 10px;
+    color: #603878;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.restaurant-popup .restaurant-dish-description {
+    margin: 0 0 18px;
+    color: #795b83;
+    font-size: 13px;
+    line-height: 1.8;
+}
+/* FOTOĞRAFLI RESTORAN TABLOSU */
+
+.restaurant-table-section {
+    margin-top: 55px;
+}
+
+.restaurant-table-section .table-container {
+    margin-top: 24px;
+    overflow-x: auto;
+}
+
+.restaurant-table {
+    width: 100%;
+    min-width: 780px;
+    border-collapse: collapse;
+    color: #603878;
+}
+
+.restaurant-table caption {
+    padding: 0 0 12px;
+    color: #795b83;
+    font-size: 13px;
+    text-align: left;
+}
+
+.restaurant-table th,
+.restaurant-table td {
+    padding: 18px;
+    border-bottom: 1px solid #ead4e3;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.restaurant-table thead th {
+    background: #f2dce9;
+    font-size: 13px;
+}
+
+.restaurant-table tbody th {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.restaurant-table tbody tr {
+    background: #fff8fb;
+    transition: background-color 0.2s ease;
+}
+
+.restaurant-table tbody tr:hover {
+    background: #f9e9f1;
+}
+
+.restaurant-table .restaurant-table-photo {
+    display: block;
+    width: 110px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.restaurant-table .restaurant-table-photo[hidden] {
+    display: none;
+}
+
+.restaurant-table a {
+    color: #603878;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.restaurant-table a:hover {
+    color: #a1517f;
+}
+
+.restaurant-table-stars {
+    color: #ad3960;
+    font-size: 19px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.restaurant-table-dish-name {
+    display: block;
+    min-width: 220px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.restaurant-table-description {
+    max-width: 330px;
+    margin: 8px 0 0;
+    color: #795b83;
+    font-size: 12px;
+    line-height: 1.7;
+}
