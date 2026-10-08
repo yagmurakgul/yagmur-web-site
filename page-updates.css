@@ -1,0 +1,202 @@
+/* ABOUT SAYFASI */
+
+.about-page .profile > div p:not(.profile-role) {
+    max-width: 620px;
+    line-height: 1.8;
+}
+
+
+/* AÇILIP KAPANAN KOLEKSİYONLAR */
+
+.collection-section {
+    margin-top: 55px;
+}
+
+.collection-accordion {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.collection-panel {
+    overflow: hidden;
+    border: 1px solid #e4c6df;
+    border-radius: 16px;
+    background: #fff8fb;
+    color: #603878;
+}
+
+.collection-panel > summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    background: #fff0f5;
+    cursor: pointer;
+    list-style: none;
+    transition: background-color 0.2s ease;
+}
+
+.collection-panel > summary::-webkit-details-marker {
+    display: none;
+}
+
+.collection-panel > summary::after {
+    content: "+";
+    margin-left: auto;
+    color: #8651a0;
+    font-size: 25px;
+    line-height: 1;
+}
+
+.collection-panel[open] > summary::after {
+    content: "−";
+}
+
+.collection-panel[open] > summary {
+    background: #eddef4;
+}
+
+.collection-panel > summary:hover {
+    background: #f2dce9;
+}
+
+.collection-panel > summary:focus-visible {
+    outline: 2px solid #8651a0;
+    outline-offset: -4px;
+}
+
+.collection-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.collection-count {
+    padding: 5px 9px;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #795b83;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.collection-content {
+    padding: 20px 24px 24px;
+}
+
+.collection-content > p:first-child {
+    margin-top: 0;
+    line-height: 1.7;
+}
+
+.collection-content .table-container {
+    margin-top: 18px;
+    overflow-x: auto;
+}
+
+.collection-content table {
+    width: 100%;
+    min-width: 640px;
+}
+
+.collection-content caption {
+    padding-bottom: 12px;
+    color: #795b83;
+    font-size: 13px;
+    text-align: left;
+}
+
+
+/* FİLM VE DİZİ TABLOSU */
+
+.screen-table {
+    min-width: 780px !important;
+    border-collapse: collapse;
+}
+
+.screen-table th,
+.screen-table td {
+    padding: 18px;
+    border-bottom: 1px solid #ead4e3;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.screen-table thead th {
+    background: #f2dce9;
+    font-size: 13px;
+}
+
+.screen-table tbody th {
+    font-size: 14px;
+}
+
+.screen-table-photo {
+    display: block;
+    width: 125px;
+    height: 95px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.screen-table-photo[hidden] {
+    display: none;
+}
+
+.screen-table a {
+    color: #603878;
+    font-size: 13px;
+    font-weight: 600;
+    text-underline-offset: 4px;
+}
+
+.screen-table-city {
+    margin: 7px 0 0;
+    color: #795b83;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.screen-table-connection {
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.screen-table-type {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    background: #eddef4;
+    color: #714096;
+    font-size: 10px;
+}
+
+.screen-table-description {
+    min-width: 230px;
+    max-width: 350px;
+    margin: 9px 0 0;
+    color: #795b83;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* KÜÇÜK EKRANLAR */
+
+@media (max-width: 600px) {
+    .collection-panel > summary {
+        padding: 16px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .collection-title {
+        font-size: 16px;
+    }
+
+    .collection-content {
+        padding: 16px;
+    }
+}

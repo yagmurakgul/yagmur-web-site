@@ -19,9 +19,16 @@
     <link rel="stylesheet" href="style.css">
 
     <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
->
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+    >
+
+    <link rel="stylesheet" href="page-updates.css">
 </head>
 
 <body>
@@ -35,28 +42,29 @@
         </nav>
     </header>
 
-    <main class="poetry-page">
-        <section class="poetry-intro">
-    <p class="eyebrow">POETRY · ART · FOOD · TRAVEL</p>
+    <main>
+        <section class="intro">
+            <p class="eyebrow">CULTURE &amp; TRAVEL</p>
 
-    <h1>My Maps<span>.</span></h1>
+            <h1>Places &amp; Stories<span>.</span></h1>
 
-    <p class="description">
-        A collection of places connected to my interests —
-        from poets' birthplaces and museum collections to
-        memorable food destinations and future travels.
-    </p>
-</section>
+            <p class="description">
+                Two maps of places connected to my interests.
+                Discover poetry, art, food and screen locations on the
+                culture map, then explore where I've been and where
+                I'd like to go on the travel map.
+            </p>
+        </section>
 
         <section class="cv-section">
-            <h2>Explore Culture on the Map</h2>
+            <h2>A Map of My Interests</h2>
 
-<p>
-    Open the layer menu to choose Poets, Artworks or Restaurants.
-    Select a location to discover poets and their verses,
-    artworks and their collections, or restaurants and
-    their Michelin distinctions.
-</p>
+            <p>
+                Open the layer menu to choose Poets, Artworks, Restaurants
+                or Movies &amp; TV Locations. Select a point to discover
+                portraits and verses, artworks, featured dishes,
+                or the real places behind familiar stories.
+            </p>
 
             <p
                 id="leaflet-status"
@@ -64,147 +72,251 @@
                 aria-live="polite"
             ></p>
 
-            <div
-                id="leaflet-map"
-                aria-label="Interactive map of poets and artworks"
-            ></div>
+            <div id="leaflet-map"></div>
 
             <p class="map-note">
-                Poet locations represent approximate birthplace centres.
-                Artwork locations represent the museums or buildings
-                holding the selected works. Display arrangements may change.
+                Nearby points merge into numbered clusters as you zoom out.
+                Select a cluster to zoom in, or use the search button to find
+                a name, film or series. Locations are approximate; film and
+                television entries distinguish filming sites from places
+                that inspired fictional settings.
             </p>
         </section>
 
-        <section class="travel-map-section">
-    <h2>My Travels &amp; Wishlist</h2>
-
-<p>
-    Some places I've already visited; others I'm still dreaming of.
-    Open the layer menu to switch between Visited and Wishlist,
-    then select a destination to read a short note.
-</p>
-    <p id="ol-status" class="map-note" aria-live="polite"></p>
-
-    <div id="ol-map"></div>
-
-    <div id="travel-popup" class="travel-popup" hidden>
-        <button
-            id="travel-popup-close"
-            class="travel-popup-close"
-            type="button"
-            aria-label="Close destination details"
-        >×</button>
-
-        <p id="travel-popup-category" class="travel-popup-category"></p>
-        <h3 id="travel-popup-title"></h3>
-        <p id="travel-popup-note"></p>
-    </div>
-
-    <p class="map-note">
-    Destinations are marked at their capital cities, with Edinburgh
-    used for Scotland. These points represent destinations,
-    rather than the exact places I visited.
-</p>
-</section>
         <section class="cv-section">
-            <h2>Selected Poets</h2>
+            <h2>My Travels &amp; Wishlist</h2>
 
-<p>
-    Select a birthplace on the map to discover portraits
-    and selected verses.
-</p>
+            <p>
+                Some places I've already visited; others I'm still dreaming of.
+                Open the layer menu to switch between Visited and Wishlist,
+                then select a destination to read a short note.
+            </p>
 
-            <div class="table-container">
-                <table class="poet-table">
-                    <caption>My selection of Turkish poets</caption>
+            <p
+                id="ol-status"
+                class="map-note"
+                aria-live="polite"
+            ></p>
 
-                    <thead>
-                        <tr>
-                            <th scope="col">Portrait</th>
-                            <th scope="col">Poet</th>
-                            <th scope="col">Life Dates</th>
-                            <th scope="col">Birthplace</th>
-                        </tr>
-                    </thead>
+            <div id="ol-map"></div>
 
-                    <tbody id="poet-table-body"></tbody>
-                </table>
+            <div id="travel-popup" class="travel-popup" hidden>
+                <button
+                    id="travel-popup-close"
+                    class="travel-popup-close"
+                    type="button"
+                    aria-label="Close destination details"
+                >
+                    ×
+                </button>
+
+                <p
+                    id="travel-popup-category"
+                    class="travel-popup-category"
+                ></p>
+
+                <h3 id="travel-popup-title"></h3>
+
+                <p id="travel-popup-note"></p>
             </div>
+
+            <p class="map-note">
+                Markers represent destinations rather than exact places
+                visited. Most countries are represented by their capitals;
+                Scotland is represented by Edinburgh.
+            </p>
         </section>
 
-        <section class="cv-section">
-            <h2>Artworks Around the World</h2>
+        <section
+            class="collection-section"
+            aria-labelledby="collection-heading"
+        >
+            <h2 id="collection-heading">Explore the Collections</h2>
 
-<p>
-    Select a birthplace on the map to discover portraits
-    and selected verses.
-</p>
+            <p>
+                Choose a collection below to open its photographs and details.
+            </p>
 
-            <div class="table-container">
-                <table class="poet-table artwork-table">
-                    <caption>Selected artworks and their locations</caption>
+            <div class="collection-accordion">
 
-                    <thead>
-                        <tr>
-                            <th scope="col">Artwork</th>
-                            <th scope="col">Title &amp; Artist</th>
-                            <th scope="col">Location</th>
-                        </tr>
-                    </thead>
+                <!-- POETS -->
 
-                    <tbody id="artwork-table-body"></tbody>
-                </table>
+                <details class="collection-panel">
+                    <summary>
+                        <span class="collection-title">Poets</span>
+                        <span class="collection-count">11 poets</span>
+                    </summary>
+
+                    <div class="collection-content">
+                        <p>
+                            Explore the poets behind the map. Select a
+                            birthplace on the map to see a portrait and
+                            verses from my selection.
+                        </p>
+
+                        <div class="table-container">
+                            <table class="poet-table">
+                                <caption>
+                                    My selection of Turkish poets
+                                </caption>
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Portrait</th>
+                                        <th scope="col">Poet</th>
+                                        <th scope="col">Life Dates</th>
+                                        <th scope="col">Birthplace</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="poet-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- ARTWORKS -->
+
+                <details class="collection-panel">
+                    <summary>
+                        <span class="collection-title">Artworks</span>
+                        <span class="collection-count">10 artworks</span>
+                    </summary>
+
+                    <div class="collection-content">
+                        <p>
+                            Explore the artists, artworks and museums
+                            featured on the map. Each entry connects
+                            an artwork with the place where it is held.
+                        </p>
+
+                        <div class="table-container">
+                            <table class="poet-table artwork-table">
+                                <caption>
+                                    Selected artworks and their locations
+                                </caption>
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Artwork</th>
+                                        <th scope="col">Title &amp; Artist</th>
+                                        <th scope="col">Location</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="artwork-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- RESTAURANTS -->
+
+                <details class="collection-panel">
+                    <summary>
+                        <span class="collection-title">Restaurants</span>
+                        <span class="collection-count">10 restaurants</span>
+                    </summary>
+
+                    <div class="collection-content">
+                        <p>
+                            Discover a selection of Michelin-starred
+                            restaurants through their locations and
+                            featured dishes.
+                        </p>
+
+                        <div class="table-container">
+                            <table class="poet-table restaurant-table">
+                                <caption>
+                                    Selected restaurants and featured dishes
+                                </caption>
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Dish</th>
+                                        <th scope="col">Restaurant</th>
+                                        <th scope="col">Location</th>
+                                        <th scope="col">Michelin Stars</th>
+                                        <th scope="col">Featured Dish</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="restaurant-table-body"></tbody>
+                            </table>
+                        </div>
+
+                        <p class="map-note">
+                            Michelin ratings and menus can change.
+                            Featured dishes may come from earlier menus
+                            and may not currently be available.
+                        </p>
+                    </div>
+                </details>
+
+                <!-- MOVIES & TV -->
+
+                <details class="collection-panel">
+                    <summary>
+                        <span class="collection-title">
+                            Movies &amp; TV Locations
+                        </span>
+
+                        <span class="collection-count">9 places</span>
+                    </summary>
+
+                    <div class="collection-content">
+                        <p>
+                            Discover real filming locations and places
+                            that inspired familiar settings, from
+                            Breaking Bad and Friends to Harry Potter
+                            and Aşk-ı Memnu.
+                        </p>
+
+                        <div class="table-container">
+                            <table class="poet-table screen-table">
+                                <caption>
+                                    Selected film and television locations
+                                </caption>
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Photo</th>
+                                        <th scope="col">Film / Series</th>
+                                        <th scope="col">Real Location</th>
+                                        <th scope="col">Screen Connection</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="screen-table-body"></tbody>
+                            </table>
+                        </div>
+
+                        <p class="map-note">
+                            Some entries are inspirations rather than
+                            filming sets. Coordinates are approximate;
+                            Pastis marks its former location.
+                        </p>
+                    </div>
+                </details>
+
             </div>
         </section>
-
-    <section class="restaurant-table-section">
-    <h2>A Taste of the World</h2>
-
-    <p>
-        Ten Michelin-starred restaurants and a selection
-        of their distinctive dishes.
-    </p>
-
-    <div class="table-container">
-        <table class="poet-table restaurant-table">
-            <caption>
-                Selected restaurants and featured dishes
-            </caption>
-
-            <thead>
-                <tr>
-                    <th scope="col">Dish</th>
-                    <th scope="col">Restaurant</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Michelin Stars</th>
-                    <th scope="col">Featured Dish</th>
-                </tr>
-            </thead>
-
-            <tbody id="restaurant-table-body"></tbody>
-        </table>
-    </div>
-
-    <p class="map-note">
-        Michelin stars checked October 2026.
-        Featured dishes may come from earlier menus;
-        availability can change.
-    </p>
-</section>
     </main>
 
     <footer>
         <p>© 2026 Yağmur Akgül</p>
     </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-<script src="poetry.js"></script>
+    <script src="poetry.js"></script>
+
+    <script src="screen-locations.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/ol@10.11.0/dist/ol.js"></script>
+
     <script src="openlayers-map.js"></script>
 </body>
 </html>

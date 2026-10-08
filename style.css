@@ -1377,3 +1377,220 @@ footer {
     font-size: 12px;
     line-height: 1.7;
 }
+/* YENİ KATMAN MENÜSÜ */
+
+.leaflet-control-layers.culture-layer-menu {
+    overflow: hidden;
+    border: 1px solid #dfbfd8;
+    border-radius: 16px;
+    background: #fff8fb;
+    color: #603878;
+    box-shadow: 0 6px 22px rgb(96 56 120 / 16%);
+    font-family: inherit;
+}
+
+.culture-layer-menu .leaflet-control-layers-toggle {
+    display: grid;
+    place-items: center;
+    width: 82px;
+    height: 42px;
+    background-image: none;
+    color: #603878;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.culture-layer-menu .leaflet-control-layers-toggle:hover {
+    background-color: #efd5e7;
+}
+
+.culture-layer-menu.leaflet-control-layers-expanded {
+    width: min(265px, calc(100vw - 90px));
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+.culture-layer-heading {
+    margin: 0 0 13px;
+    color: #a1517f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.culture-layer-menu .leaflet-control-layers-base label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 8px 0;
+    padding: 11px;
+    border: 1px solid #efdae8;
+    border-radius: 12px;
+    background: #fff0f5;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.culture-layer-menu .leaflet-control-layers-base label:hover {
+    background: #f2dce9;
+}
+
+.culture-layer-menu label:has(input:checked) {
+    border-color: #a578b8;
+    background: #eddef4;
+}
+
+.culture-layer-menu input[type="radio"] {
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: #8651a0;
+}
+
+.layer-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.layer-symbol {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 33px;
+    height: 33px;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #8651a0;
+    font-size: 21px;
+}
+
+.layer-copy strong {
+    display: block;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.layer-copy small {
+    display: block;
+    margin-top: 3px;
+    color: #795b83;
+    font-size: 10px;
+    line-height: 1.5;
+}
+/* SADE KATMAN MENÜSÜ */
+
+.leaflet-control-layers.simple-layer-menu {
+    border: 1px solid #dfbfd8;
+    border-radius: 14px;
+    background: #fff8fb;
+    color: #603878;
+    box-shadow: 0 5px 18px rgb(96 56 120 / 14%);
+    font-family: inherit;
+}
+
+.simple-layer-menu .leaflet-control-layers-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+}
+
+.simple-layer-menu.leaflet-control-layers-expanded {
+    box-sizing: border-box;
+    width: min(260px, calc(100vw - 90px));
+    padding: 12px;
+}
+
+.simple-layer-menu .leaflet-control-layers-base label {
+    margin: 6px 0;
+    padding: 12px;
+    border: 1px solid #efdae8;
+    border-radius: 10px;
+    background: #fff0f5;
+    cursor: pointer;
+}
+
+.simple-layer-menu .leaflet-control-layers-base label > span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.simple-layer-menu input[type="radio"] {
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: #8651a0;
+}
+
+.simple-layer-menu label:has(input:checked) {
+    border-color: #a578b8;
+    background: #eddef4;
+}
+
+.simple-layer-copy strong {
+    display: block;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.simple-layer-copy small {
+    display: block;
+    margin-top: 4px;
+    color: #795b83;
+    font-size: 11px;
+    line-height: 1.5;
+}
+/* SCREEN LOCATIONS */
+
+.cluster-screen {
+    background: #714096;
+}
+
+.screen-popup .screen-production {
+    margin: 0 0 12px;
+    color: #8651a0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.screen-popup .screen-photo {
+    display: block;
+    width: 100%;
+    height: 175px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.screen-popup .screen-photo[hidden] {
+    display: none;
+}
+
+.screen-popup h3 {
+    margin: 0 0 8px;
+    color: #603878;
+    line-height: 1.4;
+}
+
+.screen-popup .screen-type {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #eddef4;
+    color: #714096;
+    font-size: 11px;
+}
+
+.screen-popup .screen-connection {
+    color: #603878;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.screen-popup .screen-description {
+    color: #795b83;
+    font-size: 13px;
+    line-height: 1.7;
+}

@@ -1,5 +1,4 @@
 // YAKIN NOKTALARI KÜMELENDİRME
-
 function createCultureClusterGroup(category) {
     return L.markerClusterGroup({
         maxClusterRadius: 55,
@@ -7,10 +6,8 @@ function createCultureClusterGroup(category) {
         zoomToBoundsOnClick: true,
         spiderfyOnMaxZoom: true,
         animate: true,
-
         iconCreateFunction: function (cluster) {
             const count = cluster.getChildCount();
-
             return L.divIcon({
                 html:
                     '<span class="culture-cluster-count">' +
@@ -23,11 +20,9 @@ function createCultureClusterGroup(category) {
         }
     });
 }
-
 // ==================================================
 // ŞAİRLER
 // ==================================================
-
 const poets = [
     {
         name: "Nâzım Hikmet Ran",
@@ -140,35 +135,27 @@ Benim mi Allahım bu çizgili yüz?`
 En kesîf orduların yükleniyor dördü beşi`
     }
 ];
-
 // Aynı doğum yerindeki şairleri grupla.
 // Bu değişken ikinci OpenLayers haritasında da kullanılıyor.
 const birthplaces = [];
-
 poets.forEach(function (poet) {
     let birthplace = birthplaces.find(function (item) {
         return item.place === poet.place;
     });
-
     if (!birthplace) {
         birthplace = {
             place: poet.place,
             coordinates: poet.coordinates,
             poets: []
         };
-
         birthplaces.push(birthplace);
     }
-
     birthplace.poets.push(poet);
 });
-
-
 // ==================================================
 // ESERLER VE BULUNDUKLARI YERLER
 // Koordinatlar yaklaşık bina konumlarını temsil eder.
 // ==================================================
-
 const artLocations = [
     {
         venue: "Mauritshuis",
@@ -304,119 +291,86 @@ const artLocations = [
         ]
     }
 ];
-
-
 // ==================================================
 // ŞAİR BİLGİ KUTULARI
 // ==================================================
-
 function createPoetPopup(birthplace) {
     const popup = document.createElement("div");
     popup.className = "culture-popup";
-
     const location = document.createElement("p");
     location.className = "popup-location";
     location.textContent = "Birthplace: " + birthplace.place;
     popup.appendChild(location);
-
     birthplace.poets.forEach(function (poet) {
         const card = document.createElement("article");
         card.className = "map-poet-card";
-
         const heading = document.createElement("div");
         heading.className = "map-poet-heading";
-
         const image = document.createElement("img");
         image.src = "images/" + poet.image;
         image.alt = "Portrait of " + poet.name;
         image.width = 70;
         image.height = 86;
-
         const information = document.createElement("div");
-
         const name = document.createElement("h3");
         name.textContent = poet.name;
-
         const dates = document.createElement("p");
         dates.textContent = poet.born + "–" + poet.died;
-
         information.append(name, dates);
         heading.append(image, information);
-
         const quote = document.createElement("blockquote");
         quote.className = "map-verse";
         quote.lang = "tr";
         quote.textContent = poet.verse;
-
         card.append(heading, quote);
         popup.appendChild(card);
     });
-
     return popup;
 }
-
-
 // ==================================================
 // ESER BİLGİ KUTULARI
 // ==================================================
-
 function createArtworkPopup(location) {
     const popup = document.createElement("div");
     popup.className = "culture-popup";
-
     const venue = document.createElement("h3");
     venue.textContent = location.venue;
-
     const city = document.createElement("p");
     city.className = "popup-location";
     city.textContent = location.city;
-
     popup.append(venue, city);
-
     location.artworks.forEach(function (artwork) {
         const card = document.createElement("article");
         card.className = "map-art-card";
-
         const image = document.createElement("img");
         image.src = "images/" + artwork.image;
         image.alt = artwork.title + " by " + artwork.artist;
         image.className = "map-art-image";
-
         const title = document.createElement("h4");
         title.textContent = artwork.title;
-
         const artist = document.createElement("p");
         artist.textContent = artwork.artist + " · " + artwork.date;
-
         card.append(image, title, artist);
-
         if (artwork.note) {
             const note = document.createElement("p");
             note.className = "artwork-note";
             note.textContent = artwork.note;
             card.appendChild(note);
         }
-
         popup.appendChild(card);
     });
-
     const source = document.createElement("a");
     source.href = location.source;
     source.target = "_blank";
     source.rel = "noopener noreferrer";
     source.className = "text-link";
     source.textContent = "Museum information ↗";
-
     popup.appendChild(source);
-
     return popup;
 }
-
-
 // ==================================================
 // LEAFLET HARİTASI
 // ==================================================
-
 const poetryMap = L.map("leaflet-map", {
     minZoom: 1,
     maxZoom: 18,
@@ -425,21 +379,17 @@ const poetryMap = L.map("leaflet-map", {
         [85, 180]
     ],
     maxBoundsViscosity: 1
-}).setView([40, 30], 5);
-
+}).setView([39, 35], 6);
 // Arka plan, kategori değiştiğinde de haritada kalır.
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     noWrap: true,
     attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">' +
+        '© <a href="https://www.openstreetmap.org/copyright">' +
         "OpenStreetMap</a> contributors"
 }).addTo(poetryMap);
-
-
 // ŞAİR NOKTALARI
 const poetMarkers = createCultureClusterGroup("poets");
-
 birthplaces.forEach(function (birthplace) {
     L.circleMarker(birthplace.coordinates, {
         radius: 8,
@@ -456,11 +406,8 @@ birthplaces.forEach(function (birthplace) {
         .bindTooltip(birthplace.place)
         .addTo(poetMarkers);
 });
-
-
 // ESER NOKTALARI
 const artworkMarkers = createCultureClusterGroup("artworks");
-
 artLocations.forEach(function (location) {
     L.circleMarker(location.coordinates, {
         radius: 9,
@@ -477,14 +424,10 @@ artLocations.forEach(function (location) {
         .bindTooltip(location.venue)
         .addTo(artworkMarkers);
 });
-
-
 // KATEGORİ KATMANLARI
-
 // RESTORAN VERİLERİ
 // Koordinatlar yaklaşık konumları gösterir: [enlem, boylam].
 // Michelin yıldızları Ekim 2026'da kontrol edilmiştir.
-
 const restaurants = [
     {
         name: "Disfrutar",
@@ -587,9 +530,7 @@ const restaurants = [
             "https://guide.michelin.com/en/catalunya/girona/restaurant/el-celler-de-can-roca"
     }
 ];
-
 // RESTORAN YEMEKLERİ VE GÖRSELLERİ
-
 const restaurantDishes = {
     "Disfrutar": {
         name: "Multispherical Pesto",
@@ -597,63 +538,54 @@ const restaurantDishes = {
         description:
             "Pesto presented as delicate spheres, paired with smoked eel and pistachios."
     },
-
     "Osteria Francescana": {
         name: "Oops! I Dropped the Lemon Tart",
         image: "images/francescana-dish.webp",
         description:
             "A deliberately broken lemon tart that turns a kitchen accident into a carefully composed dessert."
     },
-
     "Le Bernardin": {
         name: "Tuna with Foie Gras",
         image: "images/le-bernardin-dish.webp",
         description:
             "Thinly pounded yellowfin tuna served with foie gras, toasted baguette and chives."
     },
-
     "Odette": {
         name: "Rosemary-Smoked Organic Egg",
         image: "images/odette-dish.jpg",
         description:
             "A slow-cooked egg paired with smoked potato foam, chorizo and crisp buckwheat."
     },
-
     "Mikla": {
         name: "Anchovy Crisp on Olive Oil Bread",
         image: "images/mikla-dish.webp",
         description:
             "Crisp anchovy on olive oil bread, served with lemon foam and chives."
     },
-
     "TURK Fatih Tutak": {
         name: "Mantı",
         image: "images/turk-dish.jpeg",
         description:
             "An interpretation of Turkish dumplings created as a tribute to the chef's mother."
     },
-
     "CORE by Clare Smyth": {
         name: "Potato and Roe",
         image: "images/core-dish.jpg",
         description:
             "A signature dish that places the humble potato at the centre of a fine-dining experience, complemented by fish roe."
     },
-
     "Plénitude – Cheval Blanc Paris": {
         name: "Langoustine with Lady Godiva Sauce",
         image: "images/plenitude-dish.png",
         description:
             "Langoustine paired with a layered sabayon featuring langoustine consommé, rosemary and chestnut honey."
     },
-
     "The Fat Duck": {
         name: "Sound of the Sea",
         image: "images/fat-duck-dish.jpeg",
         description:
             "Seafood arranged to evoke a shoreline, accompanied by the sound of waves."
     },
-
     "El Celler de Can Roca": {
         name: "Orange Chromaticism",
         image: "images/can-roca-dish.avif",
@@ -661,69 +593,51 @@ const restaurantDishes = {
             "An autumn-inspired composition exploring orange tones through orange, quince, egg yolk and carrot."
     }
 };
-
 // YENİ RESTORAN BİLGİ KARTI
-
 function createRestaurantPopup(restaurant) {
     const dish = restaurantDishes[restaurant.name];
-
     const container = document.createElement("div");
     container.className = "culture-popup restaurant-popup";
-
     const label = document.createElement("p");
     label.className = "restaurant-label";
     label.textContent = "A TASTE OF THE WORLD";
-
     const title = document.createElement("h3");
     title.textContent = restaurant.name;
-
     const location = document.createElement("p");
     location.className = "restaurant-location";
     location.textContent =
         restaurant.city + " · " + restaurant.country;
-
     const distinction = document.createElement("div");
     distinction.className = "michelin-badge";
-
     const stars = document.createElement("span");
     stars.className = "michelin-stars";
     stars.textContent = "★".repeat(restaurant.stars);
     stars.setAttribute("aria-hidden", "true");
-
     const starLabel = document.createElement("span");
     starLabel.textContent =
         restaurant.stars +
         " Michelin " +
         (restaurant.stars === 1 ? "Star" : "Stars");
-
     distinction.append(stars, starLabel);
-
     container.append(label, title, location, distinction);
-
     if (dish) {
         const image = document.createElement("img");
         image.className = "restaurant-dish-photo";
         image.alt = dish.name + " at " + restaurant.name;
         image.loading = "lazy";
-
         image.addEventListener("error", function () {
             image.hidden = true;
         });
-
         image.src = dish.image;
-
         const dishLabel = document.createElement("p");
         dishLabel.className = "restaurant-dish-label";
         dishLabel.textContent = "FEATURED DISH";
-
         const dishTitle = document.createElement("h4");
         dishTitle.className = "restaurant-dish-title";
         dishTitle.textContent = dish.name;
-
         const description = document.createElement("p");
         description.className = "restaurant-dish-description";
         description.textContent = dish.description;
-
         container.append(
             image,
             dishLabel,
@@ -731,38 +645,29 @@ function createRestaurantPopup(restaurant) {
             description
         );
     }
-
     const address = document.createElement("p");
     address.className = "restaurant-address";
-
     const addressLabel = document.createElement("strong");
     addressLabel.textContent = "Address: ";
-
     address.append(
         addressLabel,
         document.createTextNode(restaurant.address)
     );
-
     const link = document.createElement("a");
     link.className = "restaurant-link";
     link.href = restaurant.website;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = "Explore in the Michelin Guide ↗";
-
     const note = document.createElement("p");
     note.className = "restaurant-source-note";
     note.textContent =
         "Michelin stars checked October 2026. Featured dishes may come from earlier menus; availability can change.";
-
     container.append(address, link, note);
-
     return container;
 }
 // RESTORAN İŞARETÇİLERİ
-
 const restaurantMarkers = createCultureClusterGroup("restaurants");
-
 restaurants.forEach(function (restaurant) {
     L.circleMarker(restaurant.coordinates, {
         radius: 9,
@@ -782,16 +687,12 @@ restaurants.forEach(function (restaurant) {
         })
         .addTo(restaurantMarkers);
 });
-
 // KATEGORİLER
-
 const poetsCategory = L.layerGroup().addTo(poetryMap);
 const artworksCategory = L.layerGroup();
 const restaurantsCategory = L.layerGroup();
-
-// Radyo düğmeleri: aynı anda yalnızca bir kategori görünür.
-
-L.control.layers(
+// KATMAN MENÜSÜ
+window.cultureLayerControl = L.control.layers(
     {
         "Poets": poetsCategory,
         "Artworks": artworksCategory,
@@ -803,15 +704,11 @@ L.control.layers(
         position: "topright"
     }
 ).addTo(poetryMap);
-
 L.control.scale({
     imperial: false
 }).addTo(poetryMap);
-
 let activeCategory = "poets";
-
 const mapStatus = document.getElementById("leaflet-status");
-
 const categorySettings = {
     poets: {
         layer: poetsCategory,
@@ -835,16 +732,12 @@ const categorySettings = {
             "Restaurants · Select a location to explore Michelin stars and restaurant details."
     }
 };
-
 // YAKINLAŞTIRMA SEVİYESİNE GÖRE GÖRÜNÜRLÜK
-
 function updateCategoryVisibility() {
     const selected = categorySettings[activeCategory];
     const visible = poetryMap.getZoom() >= selected.minimumZoom;
-
     Object.entries(categorySettings).forEach(function ([key, setting]) {
         const shouldShow = key === activeCategory && visible;
-
         if (shouldShow) {
             if (!setting.layer.hasLayer(setting.markers)) {
                 setting.layer.addLayer(setting.markers);
@@ -855,11 +748,9 @@ function updateCategoryVisibility() {
             }
         }
     });
-
     if (!visible) {
         poetryMap.closePopup();
     }
-
     if (mapStatus) {
         mapStatus.textContent = visible
             ? selected.message
@@ -869,142 +760,109 @@ function updateCategoryVisibility() {
     }
 }
 // KATEGORİ DEĞİŞTİRME
-
 poetryMap.on("baselayerchange", function (event) {
     poetryMap.closePopup();
-
     if (event.layer === poetsCategory) {
         activeCategory = "poets";
-        poetryMap.setView([40, 30], 6);
+        poetryMap.setView([39, 35], 6, {
+    animate: false
+});
     } else if (event.layer === artworksCategory) {
         activeCategory = "artworks";
-
         const bounds = L.latLngBounds(
             artLocations.map(function (location) {
                 return location.coordinates;
             })
         );
-
         poetryMap.fitBounds(bounds, {
             padding: [35, 35],
             maxZoom: 5
         });
     } else if (event.layer === restaurantsCategory) {
         activeCategory = "restaurants";
-
         const bounds = L.latLngBounds(
             restaurants.map(function (restaurant) {
                 return restaurant.coordinates;
             })
         );
-
         poetryMap.fitBounds(bounds, {
             padding: [35, 35],
             maxZoom: 5
         });
     }
-
+    const minimumZoom = categorySettings[activeCategory].minimumZoom;
+    if (poetryMap.getZoom() < minimumZoom) {
+        poetryMap.setZoom(minimumZoom);
+    }
     updateCategoryVisibility();
 });
-
 poetryMap.on("zoomend", updateCategoryVisibility);
-
 updateCategoryVisibility();
-
 // ==================================================
 // FOTOĞRAFLI ŞAİR TABLOSU
 // ==================================================
-
 const poetTableBody = document.getElementById("poet-table-body");
-
 if (poetTableBody) {
     poetTableBody.replaceChildren();
-
     poets.forEach(function (poet) {
         const row = document.createElement("tr");
-
         const portraitCell = document.createElement("td");
         const image = document.createElement("img");
-
         image.src = "images/" + poet.image;
         image.alt = "Portrait of " + poet.name;
         image.className = "poet-portrait";
         image.loading = "lazy";
         image.width = 72;
         image.height = 88;
-
         portraitCell.appendChild(image);
-
         const nameCell = document.createElement("th");
         nameCell.scope = "row";
         nameCell.textContent = poet.name;
-
         const datesCell = document.createElement("td");
         datesCell.textContent = poet.born + "–" + poet.died;
-
         const placeCell = document.createElement("td");
         placeCell.textContent = poet.place;
-
         row.append(portraitCell, nameCell, datesCell, placeCell);
         poetTableBody.appendChild(row);
     });
 }
-
-
 // ==================================================
 // GÖRSELLİ ESER TABLOSU
 // ==================================================
-
 const artworkTableBody = document.getElementById("artwork-table-body");
-
 if (artworkTableBody) {
     artworkTableBody.replaceChildren();
-
     artLocations.forEach(function (location) {
         location.artworks.forEach(function (artwork) {
             const row = document.createElement("tr");
-
             const imageCell = document.createElement("td");
             const image = document.createElement("img");
-
             image.src = "images/" + artwork.image;
             image.alt = artwork.title + " by " + artwork.artist;
             image.className = "artwork-thumbnail";
             image.loading = "lazy";
-
             imageCell.appendChild(image);
-
             const titleCell = document.createElement("th");
             titleCell.scope = "row";
-
             const title = document.createElement("div");
             title.textContent = artwork.title;
-
             const artist = document.createElement("div");
             artist.className = "detail";
             artist.textContent = artwork.artist + " · " + artwork.date;
-
             titleCell.append(title, artist);
-
             const locationCell = document.createElement("td");
-
             const venue = document.createElement("div");
             venue.textContent = location.venue;
-
             const city = document.createElement("div");
             city.className = "detail";
             city.textContent = location.city;
-
             locationCell.append(venue, city);
-
             row.append(imageCell, titleCell, locationCell);
             artworkTableBody.appendChild(row);
         });
     });
 }
-
 // AÇILIP KAPANAN HARİTA ARAMASI
-
 function normalizeSearchText(text) {
     return String(text)
         .toLocaleLowerCase("tr")
@@ -1012,10 +870,8 @@ function normalizeSearchText(text) {
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/ı/g, "i");
 }
-
 // Aranabilecek bütün kayıtlar
 const cultureSearchEntries = [];
-
 poets.forEach(function (poet) {
     cultureSearchEntries.push({
         title: poet.name,
@@ -1025,19 +881,16 @@ poets.forEach(function (poet) {
         markers: poetMarkers
     });
 });
-
 artLocations.forEach(function (location) {
     // Müze adıyla da arama yapılabilir.
     cultureSearchEntries.push({
-        title: location.name || location.museum || location.place,
+        title: location.venue,
         detail: "Museum · Artworks",
         category: "artworks",
         coordinates: location.coordinates,
         markers: artworkMarkers
     });
-
     const works = location.artworks || location.works || [];
-
     works.forEach(function (artwork) {
         cultureSearchEntries.push({
             title: artwork.title || artwork.name,
@@ -1048,7 +901,6 @@ artLocations.forEach(function (location) {
         });
     });
 });
-
 restaurants.forEach(function (restaurant) {
     cultureSearchEntries.push({
         title: restaurant.name,
@@ -1062,68 +914,55 @@ restaurants.forEach(function (restaurant) {
         markers: restaurantMarkers
     });
 });
-
 // Eksik başlıklı kayıtları aramaya dahil etme.
 const searchableCultureEntries = cultureSearchEntries.filter(
     function (entry) {
         return Boolean(entry.title);
     }
 );
-
 function openCultureSearchResult(entry) {
     poetryMap.closePopup();
-
     // Doğru kategoriyi seç.
     activeCategory = entry.category;
-
     Object.entries(categorySettings).forEach(function ([key, setting]) {
         if (key !== entry.category) {
             poetryMap.removeLayer(setting.layer);
         }
     });
-
     const selectedCategory = categorySettings[entry.category];
-
     if (!poetryMap.hasLayer(selectedCategory.layer)) {
         poetryMap.addLayer(selectedCategory.layer);
     }
-
     // Yakınlaş ve işaretçileri görünür yap.
     poetryMap.setView(entry.coordinates, 12, {
         animate: false
     });
-
     updateCategoryVisibility();
-
     // İlgili işaretçinin bilgi kartını aç.
     const target = L.latLng(entry.coordinates);
-
     const marker = entry.markers.getLayers().find(function (layer) {
         return (
             typeof layer.getLatLng === "function" &&
             layer.getLatLng().distanceTo(target) < 10
         );
     });
-
  if (marker) {
     entry.markers.zoomToShowLayer(marker, function () {
         marker.openPopup();
     });
 }
+}
 
 // HARİTA ÜZERİNDEKİ ARAMA KONTROLÜ
-
 const CultureSearchControl = L.Control.extend({
     options: {
         position: "topleft"
     },
-
     onAdd: function () {
         const container = L.DomUtil.create(
             "div",
             "culture-search-control"
         );
-
         const toggle = document.createElement("button");
         toggle.type = "button";
         toggle.className = "culture-search-toggle";
@@ -1132,141 +971,107 @@ const CultureSearchControl = L.Control.extend({
         toggle.setAttribute("aria-label", "Search the map");
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-controls", "culture-search-panel");
-
         const panel = document.createElement("div");
         panel.id = "culture-search-panel";
         panel.className = "culture-search-panel";
         panel.hidden = true;
-
         const label = document.createElement("label");
         label.htmlFor = "culture-search-input";
         label.textContent = "Discover a place";
-
         const input = document.createElement("input");
         input.id = "culture-search-input";
         input.type = "search";
         input.placeholder = "Search poets, artworks, restaurants…";
         input.autocomplete = "off";
-
         const results = document.createElement("div");
         results.className = "culture-search-results";
-
         const status = document.createElement("p");
         status.className = "culture-search-status";
         status.setAttribute("role", "status");
         status.textContent = "Type a name to explore the map.";
-
         panel.append(label, input, status, results);
         container.append(toggle, panel);
-
         // Arama kutusunu kullanırken harita hareket etmesin.
         L.DomEvent.disableClickPropagation(container);
         L.DomEvent.disableScrollPropagation(container);
-
         function closeSearch() {
             panel.hidden = true;
             toggle.setAttribute("aria-expanded", "false");
         }
-
         function renderResults() {
             const query = normalizeSearchText(input.value.trim());
-
             results.replaceChildren();
-
             if (!query) {
                 status.textContent = "Type a name to explore the map.";
                 return;
             }
-
             const matches = searchableCultureEntries.filter(
                 function (entry) {
                     const text = normalizeSearchText(
                         entry.title + " " + entry.detail
                     );
-
                     return text.includes(query);
                 }
             );
-
             status.textContent = matches.length
                 ? matches.length + " results found."
                 : "No results found. Try another name.";
-
             matches.slice(0, 10).forEach(function (entry) {
                 const button = document.createElement("button");
                 button.type = "button";
                 button.className = "culture-search-result";
-
                 const title = document.createElement("strong");
                 title.textContent = entry.title;
-
                 const detail = document.createElement("span");
                 detail.textContent = entry.detail;
-
                 button.append(title, detail);
-
                 button.addEventListener("click", function () {
                     closeSearch();
                     toggle.focus();
                     openCultureSearchResult(entry);
                 });
-
                 results.append(button);
             });
         }
-
         toggle.addEventListener("click", function () {
             const opening = panel.hidden;
-
             panel.hidden = !opening;
             toggle.setAttribute("aria-expanded", String(opening));
-
             if (opening) {
                 input.focus();
             }
         });
-
         input.addEventListener("input", renderResults);
-
         input.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 const firstResult = results.querySelector("button");
-
                 if (firstResult) {
                     event.preventDefault();
                     firstResult.click();
                 }
             }
         });
-
         container.addEventListener("keydown", function (event) {
             event.stopPropagation();
-
             if (event.key === "Escape") {
                 closeSearch();
                 toggle.focus();
             }
         });
-
         return container;
     }
 });
-
-new CultureSearchControl().addTo(poetryMap); }
-
+new CultureSearchControl().addTo(poetryMap);
 // LEAFLET: SEÇİLİ KATEGORİYE GERİ DÖN
-
 const CultureResetControl = L.Control.extend({
     options: {
         position: "topleft"
     },
-
     onAdd: function () {
         const container = L.DomUtil.create(
             "div",
             "map-reset-control"
         );
-
         const button = document.createElement("button");
         button.type = "button";
         button.className = "map-reset-button";
@@ -1276,14 +1081,10 @@ const CultureResetControl = L.Control.extend({
             "aria-label",
             "Show all selected locations"
         );
-
         L.DomEvent.disableClickPropagation(container);
-
         button.addEventListener("click", function () {
             poetryMap.closePopup();
-
             let coordinates;
-
             if (activeCategory === "poets") {
                 coordinates = poets.map(function (poet) {
                     return poet.coordinates;
@@ -1297,76 +1098,61 @@ const CultureResetControl = L.Control.extend({
                     return restaurant.coordinates;
                 });
             }
-
             poetryMap.fitBounds(L.latLngBounds(coordinates), {
                 padding: [45, 45],
                 maxZoom: 6,
                 animate: false
             });
-
+            const minimumZoom = categorySettings[activeCategory].minimumZoom;
+            if (poetryMap.getZoom() < minimumZoom) {
+                poetryMap.setZoom(minimumZoom);
+            }
             updateCategoryVisibility();
         });
-
         container.append(button);
-
         return container;
     }
 });
-
 new CultureResetControl().addTo(poetryMap);
-
 // FOTOĞRAFLI RESTORAN TABLOSU
-
 const restaurantTableBody = document.getElementById(
     "restaurant-table-body"
 );
-
 if (restaurantTableBody) {
     restaurantTableBody.replaceChildren();
-
     restaurants.forEach(function (restaurant) {
         const dish = restaurantDishes[restaurant.name];
         const row = document.createElement("tr");
-
         // YEMEK FOTOĞRAFI
         const imageCell = document.createElement("td");
-
         if (dish) {
             const image = document.createElement("img");
             image.className = "restaurant-table-photo";
             image.alt = dish.name + " at " + restaurant.name;
             image.loading = "lazy";
-
             image.addEventListener("error", function () {
                 image.hidden = true;
             });
-
             image.src = dish.image;
             imageCell.append(image);
         } else {
             imageCell.textContent = "—";
         }
-
         // RESTORAN ADI VE REHBER BAĞLANTISI
         const nameCell = document.createElement("th");
         nameCell.scope = "row";
-
         const link = document.createElement("a");
         link.href = restaurant.website;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
         link.textContent = restaurant.name;
-
         nameCell.append(link);
-
         // KONUM
         const locationCell = document.createElement("td");
         locationCell.textContent =
             restaurant.city + ", " + restaurant.country;
-
         // MICHELIN YILDIZLARI
         const starsCell = document.createElement("td");
-
         const stars = document.createElement("span");
         stars.className = "restaurant-table-stars";
         stars.textContent = "★".repeat(restaurant.stars);
@@ -1376,26 +1162,20 @@ if (restaurantTableBody) {
                 " Michelin " +
                 (restaurant.stars === 1 ? "Star" : "Stars")
         );
-
         starsCell.append(stars);
-
         // YEMEK ADI VE AÇIKLAMASI
         const dishCell = document.createElement("td");
-
         if (dish) {
             const dishTitle = document.createElement("strong");
             dishTitle.className = "restaurant-table-dish-name";
             dishTitle.textContent = dish.name;
-
             const description = document.createElement("p");
             description.className = "restaurant-table-description";
             description.textContent = dish.description;
-
             dishCell.append(dishTitle, description);
         } else {
             dishCell.textContent = "—";
         }
-
         row.append(
             imageCell,
             nameCell,
@@ -1403,7 +1183,6 @@ if (restaurantTableBody) {
             starsCell,
             dishCell
         );
-
         restaurantTableBody.append(row);
     });
 }
