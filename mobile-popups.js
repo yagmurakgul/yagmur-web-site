@@ -6,7 +6,10 @@
         return;
     }
 
-    // Haritaya dokunmak açık bilgi kartını kapatmasın.
+    const smallScreen = window.matchMedia(
+        "(max-width: 760px)"
+    ).matches;
+
     poetryMap.options.closePopupOnClick = false;
 
     Object.values(categorySettings).forEach((category) => {
@@ -17,19 +20,57 @@
         }
 
         group.eachLayer((marker) => {
-            // Noktaya dokunma olayı haritaya aktarılmasın.
-            marker.options.bubblingMouseEvents = false;
-
             const popup = marker.getPopup();
 
-            if (popup) {
-                popup.options.closeOnClick = false;
-                popup.options.closeButton = true;
+            if (!popup) {
+                return;
             }
+
+            marker.options.bubblingMouseEvents = false;
+
+            popup.options.closeOnClick = false;
+            popup.options.closeButton = true;
+
+            if (smallScreen) {
+                // Kart açılınca harita kayıp noktayı kaldırmasın.
+                popup.options.autoPan = false;
+                popup.options.keepInView = false;
+
+                const mapWidth =
+                    poetryMap.getContainer().clientWidth;
+
+                popup.options.minWidth = Math.min(
+                    230,
+                    Math.max(120, mapWidth - 60)
+                );
+
+                popup.options.maxWidth = Math.min(
+                    300,
+                    Math.max(120, mapWidth - 60)
+                );
+
+                popup.options.maxHeight = 260;
+            }
+
+            // Bu noktalardaki varsayılan aç/kapat tıklamasını
+            // yalnızca açan bir tıklama ile değiştir.
+            marker.off("click");
+
+            marker.on("click", (event) => {
+                if (event.originalEvent) {
+                    L.DomEvent.stopPropagation(
+                        event.originalEvent
+                    );
+                }
+
+                // İkinci dokunma açık kartı kapatmasın.
+                if (!marker.isPopupOpen()) {
+                    marker.openPopup();
+                }
+            });
         });
     });
 
-    // Kartın içindeki dokunma ve kaydırmaları ayır.
     poetryMap.on("popupopen", (event) => {
         const element = event.popup.getElement();
 

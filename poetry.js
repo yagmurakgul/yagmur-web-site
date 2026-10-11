@@ -5,7 +5,8 @@ function createCultureClusterGroup(category) {
         showCoverageOnHover: false,
         zoomToBoundsOnClick: true,
         spiderfyOnMaxZoom: true,
-        animate: true,
+removeOutsideVisibleBounds: false,
+animate: true,
         iconCreateFunction: function (cluster) {
             const count = cluster.getChildCount();
             return L.divIcon({
