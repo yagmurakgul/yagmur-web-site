@@ -20,21 +20,67 @@
     </header>
 
     <main>
-        <section class="intro">
-    <p class="eyebrow">HELLO, I'M</p>
+       <section class="intro home-hero">
+    <div class="home-hero-text">
+        <p class="eyebrow">HELLO, I'M</p>
 
-    <h1>Yağmur Akgül<span>.</span></h1>
+        <h1>Yağmur Akgül<span>.</span></h1>
 
-    <p class="description">
-        I'm a Geomatics Engineering student interested in
-        maps and the stories behind places. This website
-        brings together my studies, travels and interests
-        in poetry, art, food, films and series.
-    </p>
+        <p class="description">
+            I'm a Geomatics Engineering student interested in maps
+            and the stories behind places. This website brings together
+            my studies, travels and interests in poetry, art, food,
+            films and series.
+        </p>
 
-    <a class="button" href="poetry.html">
-        Explore my maps ↗
-    </a>
+        <div class="hero-actions">
+            <a class="button" href="poetry.html">
+                Explore my maps ↗
+            </a>
+
+            <a
+                class="surprise-link"
+                href="poetry.html?surprise=1#leaflet-map"
+            >
+                Surprise me ↗
+            </a>
+        </div>
+    </div>
+
+    <div class="home-hero-character">
+        <div
+            id="character-bubble"
+            class="character-bubble"
+            hidden
+        >
+            <p>
+                Hi! Want to explore my favourite places?
+            </p>
+
+            <a href="poetry.html?surprise=1#leaflet-map">
+                Let’s explore ↗
+            </a>
+        </div>
+
+        <button
+            id="character-button"
+            class="character-button"
+            type="button"
+            aria-label="Talk to Yağmur’s character"
+            aria-expanded="false"
+            aria-controls="character-bubble"
+        >
+            <img
+                class="sims-character"
+                src="images/yagmur-sims-solo.gif"
+                alt="A Sims-style version of Yağmur dancing"
+                width="480"
+                height="480"
+            >
+        </button>
+
+        <p class="character-hint">Click me to say hello!</p>
+    </div>
 </section>
 
         <section class="travel" id="travel">
@@ -52,5 +98,7 @@
     <footer>
         <p>© 2026 Yağmur Akgül</p>
     </footer>
+
+    <script src="home.js"></script>
 </body>
 </html>
