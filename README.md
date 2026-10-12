@@ -86,17 +86,6 @@ and hosted on GitHub Pages.
 An internet connection is required for map tiles,
 fonts and externally hosted libraries. No build step is needed.
 
-## AI Assistance
-
-I used ChatGPT for brainstorming, coding guidance, troubleshooting
-and documentation. Specific topics included layer switching,
-zoom thresholds, marker clustering, image paths and mobile
-popup interactions.
-
-AI also helped generate the character artwork and adapt
-the galaxy background.
-
-**Estimated total AI usage:** [Enter your estimate in hours or minutes.]
 
 ## Notes and Credits
 
