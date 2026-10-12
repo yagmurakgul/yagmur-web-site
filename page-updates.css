@@ -20,10 +20,10 @@
 
 .collection-panel {
     overflow: hidden;
-    border: 1px solid #e4c6df;
+    border: 1px solid #d7dfec;
     border-radius: 16px;
-    background: #fff8fb;
-    color: #603878;
+    background: #f8faff;
+    color: #253550;
 }
 
 .collection-panel > summary {
@@ -31,7 +31,7 @@
     align-items: center;
     gap: 12px;
     padding: 20px 24px;
-    background: #fff0f5;
+    background: #f8faff;
     cursor: pointer;
     list-style: none;
     transition: background-color 0.2s ease;
@@ -44,7 +44,7 @@
 .collection-panel > summary::after {
     content: "+";
     margin-left: auto;
-    color: #8651a0;
+    color: #455d88;
     font-size: 25px;
     line-height: 1;
 }
@@ -54,15 +54,15 @@
 }
 
 .collection-panel[open] > summary {
-    background: #eddef4;
+    background: #e8eef8;
 }
 
 .collection-panel > summary:hover {
-    background: #f2dce9;
+    background: #e8eef8;
 }
 
 .collection-panel > summary:focus-visible {
-    outline: 2px solid #8651a0;
+    outline: 2px solid #455d88;
     outline-offset: -4px;
 }
 
@@ -75,7 +75,7 @@
     padding: 5px 9px;
     border-radius: 8px;
     background: #ffffff;
-    color: #795b83;
+    color: #53647d;
     font-size: 11px;
     white-space: nowrap;
 }
@@ -101,7 +101,7 @@
 
 .collection-content caption {
     padding-bottom: 12px;
-    color: #795b83;
+    color: #53647d;
     font-size: 13px;
     text-align: left;
 }
@@ -117,13 +117,13 @@
 .screen-table th,
 .screen-table td {
     padding: 18px;
-    border-bottom: 1px solid #ead4e3;
+    border-bottom: 1px solid #d7dfec;
     text-align: left;
     vertical-align: middle;
 }
 
 .screen-table thead th {
-    background: #f2dce9;
+    background: #e8eef8;
     font-size: 13px;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .screen-table a {
-    color: #603878;
+    color: #253550;
     font-size: 13px;
     font-weight: 600;
     text-underline-offset: 4px;
@@ -152,7 +152,7 @@
 
 .screen-table-city {
     margin: 7px 0 0;
-    color: #795b83;
+    color: #53647d;
     font-size: 12px;
     line-height: 1.5;
 }
@@ -168,8 +168,8 @@
     margin-top: 8px;
     padding: 5px 8px;
     border-radius: 7px;
-    background: #eddef4;
-    color: #714096;
+    background: #e8eef8;
+    color: #455d88;
     font-size: 10px;
 }
 
@@ -177,7 +177,7 @@
     min-width: 230px;
     max-width: 350px;
     margin: 9px 0 0;
-    color: #795b83;
+    color: #53647d;
     font-size: 12px;
     line-height: 1.7;
 }
@@ -199,4 +199,132 @@
     .collection-content {
         padding: 16px;
     }
+}
+/* COLLECTIONS: DARK HEADERS, LIGHT TABLES */
+.collection-panel { border-color:#35435f; background:#f8faff; color:#253550; }
+.collection-panel > summary { background:#111c32; color:#edf1fa; padding:20px 24px; }
+.collection-panel > summary:hover, .collection-panel[open] > summary { background:#1b2945; }
+.collection-panel > summary::after { color:#bfb3ff; }
+.collection-count { background:#273650; color:#dce4f3; font-family:"DM Mono",monospace; }
+.collection-content { color:#253550; }
+.collection-content .map-note { color:#53647d; }
+.collection-content table { color:#253550; }
+.collection-content caption, .collection-content .detail { color:#53647d; }
+.collection-content a { color:#455d88; }
+.collection-panel > summary:focus-visible { outline-color:#c4b8ff; }
+
+/* KOLEKSİYONLAR: LACİVERT VE MAVİ TONLAR */
+
+.collection-panel {
+    background: #111c30;
+    color: #e6edf8;
+    border-color: #30415e;
+}
+
+.collection-panel > summary {
+    background: #15233b;
+    color: #edf3ff;
+}
+
+.collection-panel > summary:hover,
+.collection-panel[open] > summary {
+    background: #1c3050;
+}
+
+.collection-panel > summary::after {
+    color: #a6c7ff;
+}
+
+.collection-count {
+    background: #263e60;
+    color: #dbeaff;
+}
+
+.collection-content {
+    background: #111c30;
+    color: #e6edf8;
+}
+
+.collection-content > p,
+.collection-content .map-note {
+    color: #b8c8df;
+}
+
+/* TABLO ÇERÇEVESİ */
+
+.collection-content .table-container {
+    background: #142139;
+    border: 1px solid #30415e;
+    border-radius: 12px;
+}
+
+/* TÜM KOLEKSİYON TABLOLARI */
+
+.collection-content table {
+    background: #142139;
+    color: #e6edf8;
+}
+
+.collection-content table caption {
+    background: #142139;
+    color: #b8c8df;
+    padding: 16px;
+}
+
+.collection-content table thead,
+.collection-content table thead th {
+    background: #243c5e;
+    color: #edf3ff;
+}
+
+.collection-content table tbody tr {
+    background: #142139;
+}
+
+.collection-content table tbody tr:nth-child(even) {
+    background: #172740;
+}
+
+.collection-content table tbody tr:hover {
+    background: #213757;
+}
+
+.collection-content table th,
+.collection-content table td {
+    border-color: #30415e;
+}
+
+.collection-content table tbody th {
+    color: #edf3ff;
+}
+
+/* AÇIKLAMALAR VE BAĞLANTILAR */
+
+.collection-content .detail,
+.collection-content .screen-table-city,
+.collection-content .screen-table-description,
+.collection-content .restaurant-table-description {
+    color: #b8c8df;
+}
+
+.collection-content a {
+    color: #a6c7ff;
+}
+
+.collection-content a:hover {
+    color: #d6e7ff;
+}
+
+.collection-content .screen-table-type {
+    background: #263e60;
+    color: #c9ddff;
+}
+
+.collection-content .restaurant-table-stars {
+    color: #f2ce7c;
+}
+
+.collection-content .restaurant-table-dish-name,
+.collection-content .screen-table-connection {
+    color: #edf3ff;
 }

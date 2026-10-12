@@ -8,9 +8,12 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="page-updates.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="about-body">
     <header class="site-header">
         <a class="logo" href="index.html">YA.</a>
 
@@ -32,7 +35,8 @@
             >
 
             <div>
-                <h1>Yağmur Akgül</h1>
+                <p class="eyebrow">ABOUT ME</p>
+                <h1>Yağmur Akgül<span>.</span></h1>
 
                 <p class="profile-role">
                     Geomatics Engineering Student
@@ -96,6 +100,140 @@
             </div>
         </section>
 
+        <section class="cv-section" aria-labelledby="skills-heading">
+    <p class="eyebrow">TOOLS &amp; METHODS</p>
+
+    <h2 id="skills-heading">Skills</h2>
+
+    <p class="skills-intro">
+        Tools and methods I have worked with through my coursework,
+        internships and personal projects.
+    </p>
+
+    <div class="skills-grid">
+        <article class="skill-card">
+            <h3>GIS &amp; Spatial Analysis</h3>
+
+            <ul class="skill-tags" aria-label="GIS tools">
+                <li>QGIS</li>
+                <li>Netcad</li>
+                <li>MapInfo Pro</li>
+            </ul>
+
+            <p>
+                Spatial data quality control, topology checks,
+                network analysis and accessibility analysis.
+            </p>
+        </article>
+
+        <article class="skill-card">
+            <h3>Remote Sensing &amp; Photogrammetry</h3>
+
+            <ul class="skill-tags" aria-label="Remote sensing tools">
+                <li>ERDAS Imagine</li>
+                <li>PCI Geomatica</li>
+                <li>Google Earth Engine</li>
+                <li>PhotoModeler</li>
+            </ul>
+
+            <p>
+                Supervised classification, orthophoto comparison
+                and stereo image interpretation.
+            </p>
+        </article>
+
+        <article class="skill-card">
+            <h3>Programming &amp; Web</h3>
+
+            <ul class="skill-tags" aria-label="Programming tools">
+                <li>Python</li>
+                <li>C++</li>
+                <li>PostgreSQL</li>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+
+            <p>
+                Programming and database coursework, alongside
+                hands-on web development through this Web GIS project.
+            </p>
+        </article>
+
+        <article class="skill-card">
+            <h3>CAD &amp; Documentation</h3>
+
+            <ul class="skill-tags" aria-label="CAD and office tools">
+                <li>MicroStation</li>
+                <li>Word</li>
+                <li>Excel</li>
+                <li>PowerPoint</li>
+            </ul>
+
+            <p>
+                CAD drawing, technical documentation,
+                spreadsheet work and presentation preparation.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section class="cv-section" aria-labelledby="experience-heading">
+    <p class="eyebrow">PRACTICAL EXPERIENCE</p>
+
+    <h2 id="experience-heading">Internship Experience</h2>
+
+    <article class="experience-item">
+        <div class="experience-heading">
+            <h3>Başarsoft</h3>
+            <span>Ankara, Türkiye</span>
+        </div>
+
+        <p class="experience-role">
+            Geomatics Engineering Intern
+        </p>
+
+        <ul>
+            <li>
+                Worked on digitisation and data integration
+                using MapInfo Pro.
+            </li>
+            <li>
+                Performed analyses in Google Earth Engine and
+                integrated the outputs into a GIS environment.
+            </li>
+            <li>
+                Classified and labelled street and business images
+                for machine learning datasets.
+            </li>
+        </ul>
+    </article>
+
+    <article class="experience-item">
+        <div class="experience-heading">
+            <h3>Mipmap / Jeotek</h3>
+            <span>Ankara, Türkiye</span>
+        </div>
+
+        <p class="experience-role">
+            Geomatics Engineering Intern
+        </p>
+
+        <ul>
+            <li>
+                Created architectural drawings using MicroStation.
+            </li>
+            <li>
+                Compared orthophotos and interpreted stereo imagery.
+            </li>
+            <li>
+                Performed supervised classification using
+                ERDAS Imagine and PCI Geomatica.
+            </li>
+        </ul>
+    </article>
+</section>
+
+    
         <section class="about-project">
             <h2>About This Website</h2>
 
